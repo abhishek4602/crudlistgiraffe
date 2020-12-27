@@ -2,12 +2,12 @@ const express = require ('express')
 const mongoose= require ('mongoose')
 // const favicon = require('express-favicon');
 const Visitor= require('./models/visitor')
-<<<<<<< HEAD
+
 const Task= require('./models/task_model')
 const SubTask= require('./models/subTask_model')
 const User=require('./models/user_model')
-=======
->>>>>>> b9602ed490c541204e58dc581dcb90bee91167cc
+
+//>>>>>>> b9602ed490c541204e58dc581dcb90bee91167cc
 var favicon = require('serve-favicon')
 var path = require('path')
 //db password= dV9ebXYfpnxYi8D
@@ -39,30 +39,7 @@ app.use(bodyParser.raw());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/postnewtask',async(req,res)=>{
-    
-<<<<<<< HEAD
-
-//task
-    // taskID:String,
-    // taskTitle:String,
-    // taskCreatedDate:String,
-    // taskCreatedTime:String,
-    // taskCreatedBy:String,
-    // taskStatus:String,
-    // taskTargetDate:String,
-    // taskTargetTime:String
-// //subtask
-    // subTaskID:String,
-    // subtaskParentTaskID:String,
-    // subTaskTitle:String,
-    // subTaskCreatedDate:String,
-    // subTaskCreatedTime:String,
-    // subTaskCreatedBy:String,
-    // subTaskStatus:String,
-    // subTaskTargetDate:String,
-    // subTaskTargetTime:String
-
-    console.log('Got body:', req.body); 
+        console.log('Got body:', req.body); 
     const task= new Task({
         taskID : req.body.taskID,
         taskTitle : req.body.taskTitle,
@@ -71,35 +48,10 @@ app.post('/postnewtask',async(req,res)=>{
         taskCreatedBy : req.body.taskCreatedBy,
         taskStatus : req.body.taskStatus,
         taskTargetDate : req.body.taskTargetDate,
-        taskTargetTime : req.body.taskTargetTime
-=======
-    console.log('Got body:', req.body); 
-    const visitor= new Visitor({
-        nameVisitor : req.body.nameVisitor,
-        tempVisitor : req.body.tempVisitor,
-        destinationFlatVisitor : req.body.destinationFlatVisitor,
-        vehicleNumberVisitor : req.body.vehicleNumberVisitor,
-        timeStamp : req.body.timeStamp,
-        visitorType : req.body.visitorType
->>>>>>> b9602ed490c541204e58dc581dcb90bee91167cc
-        })
-        const subtask= new SubTask({
-            subTaskID : req.body.subTaskID,
-            subtaskParentTaskID : req.body.subtaskParentTaskID,
-            subTaskTitle : req.body.subTaskTitle,
-            subTaskCreatedDate : req.body.subTaskCreatedDate,
-            subTaskCreatedTime : req.body.subTaskCreatedTime,
-            subTaskCreatedBy : req.body.subTaskCreatedBy,
-            subTaskStatus : req.body.subTaskStatus,
-            subTaskTargetDate : req.body.subTaskTargetDate,
-            subTaskTargetTime : req.body.subTaskTargetTime
-            })
+        taskTargetTime : req.body.taskTargetTime})
 
-        const user= new User({
-            userID : req.body.userID,
-            userName : req.body.userName,
-            userPhoto : req.body.userPhoto,
-        })    
+
+    
         
          console.log(JSON.stringify(req.body))
          try{
@@ -108,40 +60,9 @@ app.post('/postnewtask',async(req,res)=>{
         }catch(Err){console.log(Err)}
 })
 
-app.post('/postnewsubtask',async(req,res)=>{
-    
-
-    //task
-        // taskID:String,
-        // taskTitle:String,
-        // taskCreatedDate:String,
-        // taskCreatedTime:String,
-        // taskCreatedBy:String,
-        // taskStatus:String,
-        // taskTargetDate:String,
-        // taskTargetTime:String
-    // //subtask
-        // subTaskID:String,
-        // subtaskParentTaskID:String,
-        // subTaskTitle:String,
-        // subTaskCreatedDate:String,
-        // subTaskCreatedTime:String,
-        // subTaskCreatedBy:String,
-        // subTaskStatus:String,
-        // subTaskTargetDate:String,
-        // subTaskTargetTime:String
-    
+app.post('/postnewsubtask',async(req,res)=>{ 
         console.log('Got body:', req.body); 
-        const task= new Task({
-            taskID : req.body.taskID,
-            taskTitle : req.body.taskTitle,
-            taskCreatedDate : req.body.taskCreatedDate,
-            taskCreatedTime : req.body.taskCreatedTime,
-            taskCreatedBy : req.body.taskCreatedBy,
-            taskStatus : req.body.taskStatus,
-            taskTargetDate : req.body.taskTargetDate,
-            taskTargetTime : req.body.taskTargetTime
-            })
+       
             const subtask= new SubTask({
                 subTaskID : req.body.subTaskID,
                 subtaskParentTaskID : req.body.subtaskParentTaskID,
@@ -154,12 +75,7 @@ app.post('/postnewsubtask',async(req,res)=>{
                 subTaskTargetTime : req.body.subTaskTargetTime
                 })
     
-            const user= new User({
-                userID : req.body.userID,
-                userName : req.body.userName,
-                userPhoto : req.body.userPhoto,
-            })    
-            
+         
              console.log(JSON.stringify(req.body))
              try{
                 const v1= await subtask.save()
@@ -169,49 +85,10 @@ app.post('/postnewsubtask',async(req,res)=>{
 
     app.post('/postnewuser',async(req,res)=>{
     
-
-        //task
-            // taskID:String,
-            // taskTitle:String,
-            // taskCreatedDate:String,
-            // taskCreatedTime:String,
-            // taskCreatedBy:String,
-            // taskStatus:String,
-            // taskTargetDate:String,
-            // taskTargetTime:String
-        // //subtask
-            // subTaskID:String,
-            // subtaskParentTaskID:String,
-            // subTaskTitle:String,
-            // subTaskCreatedDate:String,
-            // subTaskCreatedTime:String,
-            // subTaskCreatedBy:String,
-            // subTaskStatus:String,
-            // subTaskTargetDate:String,
-            // subTaskTargetTime:String
+ 
         
             console.log('Got body:', req.body); 
-            const task= new Task({
-                taskID : req.body.taskID,
-                taskTitle : req.body.taskTitle,
-                taskCreatedDate : req.body.taskCreatedDate,
-                taskCreatedTime : req.body.taskCreatedTime,
-                taskCreatedBy : req.body.taskCreatedBy,
-                taskStatus : req.body.taskStatus,
-                taskTargetDate : req.body.taskTargetDate,
-                taskTargetTime : req.body.taskTargetTime
-                })
-                const subtask= new SubTask({
-                    subTaskID : req.body.subTaskID,
-                    subtaskParentTaskID : req.body.subtaskParentTaskID,
-                    subTaskTitle : req.body.subTaskTitle,
-                    subTaskCreatedDate : req.body.subTaskCreatedDate,
-                    subTaskCreatedTime : req.body.subTaskCreatedTime,
-                    subTaskCreatedBy : req.body.subTaskCreatedBy,
-                    subTaskStatus : req.body.subTaskStatus,
-                    subTaskTargetDate : req.body.subTaskTargetDate,
-                    subTaskTargetTime : req.body.subTaskTargetTime
-                    })
+          
         
                 const user= new User({
                     userID : req.body.userID,
