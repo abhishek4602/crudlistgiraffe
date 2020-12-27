@@ -254,7 +254,9 @@ app.get('/tasks',async(req,res) => {
 })
 
 
+
 const taskdogrouter_2=require('./routers/watchdogrouter')
 app.use('/tasks',taskdogrouter_2)
-
-app.listen(process.env.PORT ||9000,() => {console.log('Success 8000')})
+const host = '0.0.0.0';
+const port = process.env.PORT || 9000;
+app.listen(port,host,() => {console.log('Success 8000')})
