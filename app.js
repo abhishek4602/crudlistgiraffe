@@ -130,6 +130,26 @@ app.get('/tasks',async(req,res) => {
     catch(err){}
 })
 
+app.get('/getspecificuser',async(req,res) => {
+    try
+    {
+        const user=await User.find
+        (
+            {userName:req.body.userName},
+                 (error,data)=>
+                     {
+                           if(error)
+                                   {  
+                                   res.json(error)
+                                   }
+                              else
+                                     {  res.json(data)
+                                  }
+        })
+      
+    }
+    catch(err){}
+})
 
 
 const taskdogrouter_2=require('./routers/watchdogrouter')
