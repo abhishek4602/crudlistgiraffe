@@ -135,7 +135,7 @@ app.get('/getspecificuser',async(req,res) => {
     {
         const user=await User.find
         (
-            {userName:req.body.userName},
+            {userName:req.params.userName},
                  (error,data)=>
                      {
                            if(error)
