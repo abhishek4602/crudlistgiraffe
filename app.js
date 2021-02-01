@@ -80,14 +80,14 @@ app.get('/getspecifictask',async(req,res) => {
 })
 
 
-app.get('/updatesubtaskstatus',async(req,res) => {
+app.post('/updatesubtaskstatus',async(req,res) => {
     const newStatus = { taskStatus: req.body.newStatus };
    let doc = await Task.findOneAndUpdate(
     {
         taskID: req.body.taskID,
         'subtasks.subtaskID': req.body.subtaskID 
       },
-      {
+      {  
         $set: {
           'subtasks.$.subTaskStatus': req.body.newStatus
         }}
@@ -98,7 +98,7 @@ app.get('/updatesubtaskstatus',async(req,res) => {
 })
 
 
-app.get('/updatetaskstatus',async(req,res) => {
+app.post('/updatetaskstatus',async(req,res) => {
     const newStatus = { taskStatus: req.body.newStatus };
     const filter = { taskID: req.body.taskID };
    let doc = await Task.findOneAndUpdate(filter,newStatus   
@@ -109,7 +109,7 @@ app.get('/updatetaskstatus',async(req,res) => {
 })
 
 
-app.get('/updatetask',async(req,res) => {
+app.post('/updatetask',async(req,res) => {
     const newStatus = {
         taskTitle : req.body.taskTitle,
         taskDescription:req.body.taskDescription,
@@ -126,7 +126,7 @@ app.get('/updatetask',async(req,res) => {
 
 
 
-app.get('/updatesubtask',async(req,res) => {
+app.post('/updatesubtask',async(req,res) => {
     const newStatus = {      
         subtaskTitle: req.body.subtaskTitle,         
         subTaskTargetDate: req.body.subTaskTargetDate,
