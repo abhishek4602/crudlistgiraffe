@@ -151,6 +151,42 @@ app.post('/updatesubtask',async(req,res) => {
 
 
 
+app.post('/addsubtask1',async(req,res) => {
+    let doc = await Task.findOneAndUpdate(
+        {
+            taskID: req.body.taskID,
+          },
+          {
+            $push: { subtasks:{  
+                subtaskID : req.body.subtaskID,               
+                subtaskTitle : req.body.subtaskTitle,
+                subTaskCreatedDate : req.body.subTaskCreatedDate,
+                subTaskCreatedTime : req.body.subTaskCreatedTime,
+                subTaskCreatedBy : req.body.subTaskCreatedBy,
+                subTaskStatus : req.body.subTaskStatus,
+                subTaskTargetDate : req.body.subTaskTargetDate,
+                subTaskTargetTime : req.body.subTaskTargetTime}}}
+       );
+   
+    res.json(doc)
+    
+   
+})
+
+
+app.post('/deletetask',async(req,res) => {
+    let doc = await Task.findOneAndDelete(
+        {
+            taskID: req.body.taskID,
+          }
+           
+       );
+   
+    res.json(doc)   
+   
+})
+
+ 
 
 
 
@@ -287,4 +323,4 @@ const taskdogrouter_2=require('./routers/watchdogrouter')
 app.use('/tasks',taskdogrouter_2)
 const host = '0.0.0.0';
 const port = process.env.PORT || 9000;
-app.listen(port,host,() => {console.log('Success 8000')})
+app.listen(port,host,() => {console.log('Success 9000')})
