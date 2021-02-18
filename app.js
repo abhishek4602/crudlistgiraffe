@@ -40,12 +40,15 @@ app.post('/postnewtask',async(req,res)=>{
         taskID : req.body.taskID,
         taskTitle : req.body.taskTitle,
         taskDescription:req.body.taskDescription,
+        taskCategory:req.body.taskCategory,
+        taskLocation:req.body.taskLocation,
         taskCreatedDate : req.body.taskCreatedDate,
         taskCreatedTime : req.body.taskCreatedTime,
         taskCreatedBy : req.body.taskCreatedBy,
         taskStatus : req.body.taskStatus,
         taskTargetDate : req.body.taskTargetDate,
-        taskTargetTime : req.body.taskTargetTime,
+        taskTargetStartTime : req.body.taskTargetStartTime,
+        taskTargetEndTime : req.body.taskTargetEndTime,
         subtasks : req.body.subtasks,
         collaborators : req.body.collaborators
         })       
