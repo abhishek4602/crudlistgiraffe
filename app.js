@@ -149,7 +149,7 @@ app.post('/updatesubtask',async(req,res) => {
             }}
        );
    
-    res.json(doc)
+    res.json(res.status)
 })
 
 
