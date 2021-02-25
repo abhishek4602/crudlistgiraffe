@@ -66,7 +66,7 @@ app.get('/getspecifictask',async(req,res) => {
     {
         const task=await Task.find
         (
-            {taskID:req.header.taskID},
+            {taskID:req.params.taskID},
                  (error,data)=>
                      {
                            if(error)
